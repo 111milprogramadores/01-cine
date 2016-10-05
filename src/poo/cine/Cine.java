@@ -5,6 +5,7 @@
  */
 package poo.cine;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -13,12 +14,14 @@ import java.util.List;
  * @author Candelaria
  */
 public class Cine {
+    
     private String direccion;
     private Date fechaInauguracion;
     private String nombre;
     private List<Sala> sala;
-    private List<HorarioFuncion> horarioFuncion;
-    private List<Programacion> programacion;
+    private List<HorarioFuncion> horariosFunciones;
+    private List<Programacion> programaciones;
+    private BigDecimal precioEntrada;
     
     /**
      * Constructor por Defecto
@@ -33,16 +36,16 @@ public class Cine {
      * @param fechaInauguracion
      * @param nombre
      * @param sala
-     * @param horarioFuncion
-     * @param programacion 
+     * @param horariosFunciones
+     * @param programaciones
      */
-    public Cine(String direccion, Date fechaInauguracion, String nombre, List<Sala> sala, List<HorarioFuncion> horarioFuncion, List<Programacion> programacion) {
+    public Cine(String direccion, Date fechaInauguracion, String nombre, List<Sala> sala, List<HorarioFuncion> horariosFunciones, List<Programacion> programaciones) {
         this.direccion = direccion;
         this.fechaInauguracion = fechaInauguracion;
         this.nombre = nombre;
         this.sala = sala;
-        this.horarioFuncion = horarioFuncion;
-        this.programacion = programacion;
+        this.horariosFunciones = horariosFunciones;
+        this.programaciones = programaciones;
     }
     
     /**
@@ -56,6 +59,25 @@ public class Cine {
         this.direccion = direccion;
         this.fechaInauguracion = fechaInauguracion;
         this.nombre = nombre;
+    }
+    
+    /**
+     * Devolvemos una represetación textual de Cine
+     * 
+     * @return 
+     */
+    public String mostrarCine () {
+        return null;
+    }
+    
+    /**
+     * Obtenemos una representación textual de los horarios de las distintas
+     * Funciones disponibles por día para este Cine
+     * 
+     * @return 
+     */
+    public String mostrarHorariosFunciones () {
+        return null;
     }
     
     // A continuación se listan todos los métodos de seteo 
@@ -93,20 +115,28 @@ public class Cine {
         this.sala = sala;
     }
 
-    public List<HorarioFuncion> getHorarioFuncion() {
-        return horarioFuncion;
+    public List<HorarioFuncion> getHorariosFunciones() {
+        return horariosFunciones;
     }
 
-    public void setHorarioFuncion(List<HorarioFuncion> horarioFuncion) {
-        this.horarioFuncion = horarioFuncion;
+    public void setHorariosFunciones(List<HorarioFuncion> horariosFunciones) {
+        this.horariosFunciones = horariosFunciones;
     }
 
-    public List<Programacion> getProgramacion() {
-        return programacion;
+    public List<Programacion> getProgramaciones() {
+        return programaciones;
     }
 
-    public void setProgramacion(List<Programacion> programacion) {
-        this.programacion = programacion;
+    public void setProgramaciones(List<Programacion> programaciones) {
+        this.programaciones = programaciones;
+    }
+
+    public BigDecimal getPrecioEntrada() {
+        return precioEntrada;
+    }
+
+    public void setPrecioEntrada(BigDecimal precioEntrada) {
+        this.precioEntrada = precioEntrada;
     }
     
 }

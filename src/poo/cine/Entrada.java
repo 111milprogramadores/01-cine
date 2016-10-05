@@ -5,6 +5,7 @@
  */
 package poo.cine;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -13,13 +14,10 @@ import java.util.Date;
  */
 public class Entrada {
 
-    private Date fechaFuncion;
-    private Date fechaVenta;
-    private Date horaFuncion;
-    private Date horaVenta;
-    private Pelicula pelicula;
-    private float precioCobrado;
-    private Sala sala;
+    private Date fechaHoraFuncion;
+    private Date fechaHoraVenta;
+    private Funcion funcion;
+    private BigDecimal precioCobrado;
     private int ticketNro; // Singleton posible
 
     /**
@@ -27,87 +25,57 @@ public class Entrada {
      */
     public Entrada() {
     }
-    
+
     /**
      * Este constructor incluye todos los atributos de la clase Entrada
      * 
-     * @param fechaFuncion
-     * @param fechaVenta
-     * @param horaFuncion
-     * @param horaVenta
-     * @param pelicula
+     * @param fechaHoraFuncion
+     * @param fechaHoraVenta
+     * @param funcion
      * @param precioCobrado
-     * @param sala
      * @param ticketNro 
      */
-    public Entrada(Date fechaFuncion, Date fechaVenta, Date horaFuncion, Date horaVenta, Pelicula pelicula, float precioCobrado, Sala sala, int ticketNro) {
-        this.fechaFuncion = fechaFuncion;
-        this.fechaVenta = fechaVenta;
-        this.horaFuncion = horaFuncion;
-        this.horaVenta = horaVenta;
-        this.pelicula = pelicula;
+    public Entrada(Date fechaHoraFuncion, Date fechaHoraVenta, Funcion funcion, BigDecimal precioCobrado, int ticketNro) {
+        this.fechaHoraFuncion = fechaHoraFuncion;
+        this.fechaHoraVenta = fechaHoraVenta;
+        this.funcion = funcion;
         this.precioCobrado = precioCobrado;
-        this.sala = sala;
         this.ticketNro = ticketNro;
     }
-
+    
     // A continuación se listan todos los métodos de seteo 
     // de cada atributo de la clase
-   
-    public Date getFechaFuncion() {
-        return fechaFuncion;
+
+    public Date getFechaHoraFuncion() {
+        return fechaHoraFuncion;
     }
 
-    public void setFechaFuncion(Date fechaFuncion) {
-        this.fechaFuncion = fechaFuncion;
+    public void setFechaHoraFuncion(Date fechaHoraFuncion) {
+        this.fechaHoraFuncion = fechaHoraFuncion;
     }
 
-    public Date getFechaVenta() {
-        return fechaVenta;
+    public Date getFechaHoraVenta() {
+        return fechaHoraVenta;
     }
 
-    public void setFechaVenta(Date fechaVenta) {
-        this.fechaVenta = fechaVenta;
+    public void setFechaHoraVenta(Date fechaHoraVenta) {
+        this.fechaHoraVenta = fechaHoraVenta;
     }
 
-    public Date getHoraFuncion() {
-        return horaFuncion;
+    public Funcion getFuncion() {
+        return funcion;
     }
 
-    public void setHoraFuncion(Date horaFuncion) {
-        this.horaFuncion = horaFuncion;
+    public void setFuncion(Funcion funcion) {
+        this.funcion = funcion;
     }
 
-    public Date getHoraVenta() {
-        return horaVenta;
-    }
-
-    public void setHoraVenta(Date horaVenta) {
-        this.horaVenta = horaVenta;
-    }
-
-    public Pelicula getPelicula() {
-        return pelicula;
-    }
-
-    public void setPelicula(Pelicula pelicula) {
-        this.pelicula = pelicula;
-    }
-
-    public float getPrecioCobrado() {
+    public BigDecimal getPrecioCobrado() {
         return precioCobrado;
     }
 
-    public void setPrecioCobrado(float precioCobrado) {
+    public void setPrecioCobrado(BigDecimal precioCobrado) {
         this.precioCobrado = precioCobrado;
-    }
-
-    public Sala getSala() {
-        return sala;
-    }
-
-    public void setSala(Sala sala) {
-        this.sala = sala;
     }
 
     public int getTicketNro() {

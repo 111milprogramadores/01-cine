@@ -14,7 +14,7 @@ public class Personaje {
     private boolean animado;
     private String apellido;
     private String nombre;
-    private String sexo; //Chequear tipo de datos
+    private Sexo sexo;
 
     /**
      * Constructor por Defecto
@@ -30,7 +30,7 @@ public class Personaje {
      * @param nombre
      * @param sexo 
      */
-    public Personaje(boolean animado, String apellido, String nombre, String sexo) {
+    public Personaje(boolean animado, String apellido, String nombre, Sexo sexo) {
         this.animado = animado;
         this.apellido = apellido;
         this.nombre = nombre;
@@ -62,11 +62,11 @@ public class Personaje {
         this.nombre = nombre;
     }
 
-    public String getSexo() {
+    public Sexo getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(Sexo sexo) {
         this.sexo = sexo;
     }
     

@@ -7,6 +7,7 @@ package poo.cine;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -22,7 +23,7 @@ public class Pelicula {
     private String tituloOriginal;
     private PaisDeOrigen paisDeOrigen;
     private Elenco elenco;
-    private Funcion funcion;
+    private List<Funcion> funciones;
     private Genero genero;
     private Calificacion calificacion;
 
@@ -61,11 +62,11 @@ public class Pelicula {
      * @param tituloOriginal
      * @param paisDeOrigen
      * @param elenco
-     * @param funcion
+     * @param funciones
      * @param genero
      * @param calificacion 
      */
-    public Pelicula(int anioEstreno, boolean disponible, float duracion, String nombre, String tituloOriginal, PaisDeOrigen paisDeOrigen, Elenco elenco, Funcion funcion, Genero genero, Calificacion calificacion) {
+    public Pelicula(int anioEstreno, boolean disponible, float duracion, String nombre, String tituloOriginal, PaisDeOrigen paisDeOrigen, Elenco elenco, List<Funcion> funciones, Genero genero, Calificacion calificacion) {
         this.anioEstreno = anioEstreno;
         this.disponible = disponible;
         this.duracion = duracion;
@@ -73,7 +74,7 @@ public class Pelicula {
         this.tituloOriginal = tituloOriginal;
         this.paisDeOrigen = paisDeOrigen;
         this.elenco = elenco;
-        this.funcion = funcion;
+        this.funciones = funciones;
         this.genero = genero;
         this.calificacion = calificacion;
         this.fechaIngreso = java.sql.Timestamp.valueOf(LocalDateTime.now()); 
@@ -100,8 +101,8 @@ public class Pelicula {
      * @return 
      */
     public String mostrarFuncionesHabilitadas() {
-        // TODO
-        return "Falta implementar";
+        // TODO implementar
+        return null;
     }
     
     // A continuación se listan todos los métodos 
@@ -171,12 +172,12 @@ public class Pelicula {
         this.elenco = elenco;
     }
 
-    public Funcion getFuncion() {
-        return funcion;
+    public List<Funcion> getFunciones() {
+        return funciones;
     }
 
-    public void setFuncion(Funcion funcion) {
-        this.funcion = funcion;
+    public void setFunciones(List<Funcion> funciones) {
+        this.funciones = funciones;
     }
 
     public Genero getGenero() {

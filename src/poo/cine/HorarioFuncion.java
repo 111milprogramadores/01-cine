@@ -14,8 +14,8 @@ import java.util.Date;
 public class HorarioFuncion {
     
     private int diaDeSemana;
-    private float duracionIntervaloFunc;
-    private float duracionPublicidad;
+    private int duracionIntervalo;
+    private int duracionPublicidad;
     private boolean esTrasnoche;
     private Date horaPrimeraFuncion;
     private Date horaUltimaFuncion;
@@ -30,15 +30,15 @@ public class HorarioFuncion {
      * Este constructor incluye todos los atributos de la clase HorarioFuncion
      * 
      * @param diaDeSemana
-     * @param duracionIntervaloFunc
+     * @param duracionIntervalo
      * @param duracionPublicidad
      * @param esTrasnoche
      * @param horaPrimeraFuncion
      * @param horaUltimaFuncion 
      */
-    public HorarioFuncion(int diaDeSemana, float duracionIntervaloFunc, float duracionPublicidad, boolean esTrasnoche, Date horaPrimeraFuncion, Date horaUltimaFuncion) {
+    public HorarioFuncion(int diaDeSemana, int duracionIntervalo, int duracionPublicidad, boolean esTrasnoche, Date horaPrimeraFuncion, Date horaUltimaFuncion) {
         this.diaDeSemana = diaDeSemana;
-        this.duracionIntervaloFunc = duracionIntervaloFunc;
+        this.duracionIntervalo = duracionIntervalo;
         this.duracionPublicidad = duracionPublicidad;
         this.esTrasnoche = esTrasnoche;
         this.horaPrimeraFuncion = horaPrimeraFuncion;
@@ -51,10 +51,9 @@ public class HorarioFuncion {
      * @return 
      */
     public String mostrarHorarioFuncion() {
-       return "El horario de la primera función es: " +  this.horaPrimeraFuncion
-           + " El horario de la última función es: " + this.horaUltimaFuncion;
+        // TODO implementar
+       return null;
     }
-    
 
     // A continuación se listan todos los métodos de seteo 
     // de cada atributo de la clase 
@@ -67,23 +66,23 @@ public class HorarioFuncion {
         this.diaDeSemana = diaDeSemana;
     }
 
-    public float getDuracionIntervaloFunc() {
-        return duracionIntervaloFunc;
+    public int getDuracionIntervalo() {
+        return duracionIntervalo;
     }
 
-    public void setDuracionIntervaloFunc(float duracionIntervaloFunc) {
-        this.duracionIntervaloFunc = duracionIntervaloFunc;
+    public void setDuracionIntervalo(int duracionIntervalo) {
+        this.duracionIntervalo = duracionIntervalo;
     }
 
-    public float getDuracionPublicidad() {
+    public int getDuracionPublicidad() {
         return duracionPublicidad;
     }
 
-    public void setDuracionPublicidad(float duracionPublicidad) {
+    public void setDuracionPublicidad(int duracionPublicidad) {
         this.duracionPublicidad = duracionPublicidad;
     }
 
-    public boolean isEsTrasnoche() {
+    public boolean esTrasnoche() {
         return esTrasnoche;
     }
 

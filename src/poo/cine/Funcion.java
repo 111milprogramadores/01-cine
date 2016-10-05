@@ -5,8 +5,8 @@
  */
 package poo.cine;
 
-import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -21,6 +21,7 @@ public class Funcion {
     private int numero;
     private Pelicula pelicula;
     private Sala sala;
+    private List<Entrada> entradas;
 
     /**
      * Constructor por Defecto
@@ -66,13 +67,36 @@ public class Funcion {
      * @return cantidad total de butacas de la Sala
      */
     public int capacidadSala() {
-        return this.sala.getCapacidad();
+        // TODO implementar
+        return 0;
     }
     
-    public boolean controlarHoraFuncion() {
-        final Date fechaHoraActual = java.sql.Timestamp.valueOf(LocalDateTime.now());
-        //Chequear no me acuerdo el compareTo
-        return this.horaInicio.compareTo(fechaHoraActual) <= 1;
+    /**
+     * 
+     * @return 
+     */
+    public boolean estaEnCurso() {
+        // TODO implementar
+        return false;
+    }
+    
+    /**
+     * Consultamos si queda al menos una Entrada disponible para esta función
+     * 
+     * @return 
+     */
+    public boolean hayLugar() {
+        // TODO implementar
+        return true;
+    }
+    
+    /**
+     * Devolvemos una representación en texto del día y hora de esta función
+     * 
+     * @return 
+     */
+    public String mostrarDiaHora() {
+        return null;
     }
 
     // A continuación se listan todos los métodos de seteo
@@ -132,6 +156,14 @@ public class Funcion {
 
     public void setSala(Sala sala) {
         this.sala = sala;
+    }
+
+    public List<Entrada> getEntradas() {
+        return entradas;
+    }
+
+    public void setEntradas(List<Entrada> entradas) {
+        this.entradas = entradas;
     }
    
 }

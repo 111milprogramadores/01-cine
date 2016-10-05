@@ -14,10 +14,9 @@ import java.util.List;
  */
 public class Programacion {
     
-    private Date fechaFinProgramacion;
-    private Date fechaInicioProgramacion;
-    private Date fechaProgramacion;
-    private Date horaProgramacion;
+    private Date fechaInicio;
+    private Date fechaFin;
+    private Date fechaHoraCreada;
     private List<Funcion> funciones;
 
     /**
@@ -29,16 +28,16 @@ public class Programacion {
     /**
      * Este constructor todos los atributos de la clase Programacion
      * 
-     * @param fechaFinProgramacion
-     * @param fechaInicioProgramacion
-     * @param fechaProgramacion
-     * @param horaProgramacion 
+     * @param fechaInicio
+     * @param fechaFin
+     * @param fechaHoraCreada
+     * @param funciones 
      */
-    public Programacion(Date fechaFinProgramacion, Date fechaInicioProgramacion, Date fechaProgramacion, Date horaProgramacion) {
-        this.fechaFinProgramacion = fechaFinProgramacion;
-        this.fechaInicioProgramacion = fechaInicioProgramacion;
-        this.fechaProgramacion = fechaProgramacion;
-        this.horaProgramacion = horaProgramacion;
+    public Programacion(Date fechaInicio, Date fechaFin, Date fechaHoraCreada, List<Funcion> funciones) {
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.fechaHoraCreada = fechaHoraCreada;
+        this.funciones = funciones;
     }
     
     /**
@@ -51,40 +50,52 @@ public class Programacion {
         // TODO recorrer funciones y mostrar sus datos
         return "Falta implementar";
     }
+    
+    /**
+     * Comprobamos si todos los días de esta programación tienen al menos una
+     * Función asignada.
+     * 
+     * @return 
+     */
+    public boolean estaCompleta () {
+        return false;
+    }
+    
+    /**
+     * Comprobamos si la fecha actual se encuentra dentro del periodo de 
+     * vigencia de esta Programacion (fecha de inicio y fin)
+     * 
+     * @return 
+     */
+    public boolean estaVigente () {
+       return false; 
+    }
   
     // A continuación se listan todos los métodos 
-    // de seteo de cada atributo de la clase.
+    // de seteo de cada atributo de la clase
 
-    public Date getFechaFinProgramacion() {
-        return fechaFinProgramacion;
+    public Date getFechaInicio() {
+        return fechaInicio;
     }
 
-    public void setFechaFinProgramacion(Date fechaFinProgramacion) {
-        this.fechaFinProgramacion = fechaFinProgramacion;
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechaInicioProgramacion() {
-        return fechaInicioProgramacion;
+    public Date getFechaFin() {
+        return fechaFin;
     }
 
-    public void setFechaInicioProgramacion(Date fechaInicioProgramacion) {
-        this.fechaInicioProgramacion = fechaInicioProgramacion;
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
-    public Date getFechaProgramacion() {
-        return fechaProgramacion;
+    public Date getFechaHoraCreada() {
+        return fechaHoraCreada;
     }
 
-    public void setFechaProgramacion(Date fechaProgramacion) {
-        this.fechaProgramacion = fechaProgramacion;
-    }
-
-    public Date getHoraProgramacion() {
-        return horaProgramacion;
-    }
-
-    public void setHoraProgramacion(Date horaProgramacion) {
-        this.horaProgramacion = horaProgramacion;
+    public void setFechaHoraCreada(Date fechaHoraCreada) {
+        this.fechaHoraCreada = fechaHoraCreada;
     }
 
     public List<Funcion> getFunciones() {
