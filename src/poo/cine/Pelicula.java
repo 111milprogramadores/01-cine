@@ -17,12 +17,12 @@ public class Pelicula {
     
     private int anioEstreno;
     private boolean disponible;
-    private float duracion;
+    private int duracion;
     private Date fechaIngreso;
     private String nombre;
     private String tituloOriginal;
     private PaisDeOrigen paisDeOrigen;
-    private Elenco elenco;
+    private List<Personaje> personajes;
     private List<Funcion> funciones;
     private Genero genero;
     private Calificacion calificacion;
@@ -42,7 +42,7 @@ public class Pelicula {
      * @param nombre
      * @param tituloOriginal 
      */
-    public Pelicula(int anioEstreno, boolean disponible, float duracion, String nombre, String tituloOriginal) {
+    public Pelicula(int anioEstreno, boolean disponible, int duracion, String nombre, String tituloOriginal) {
         this.anioEstreno = anioEstreno;
         this.disponible = disponible;
         this.duracion = duracion;
@@ -61,19 +61,19 @@ public class Pelicula {
      * @param nombre
      * @param tituloOriginal
      * @param paisDeOrigen
-     * @param elenco
+     * @param personajes
      * @param funciones
      * @param genero
      * @param calificacion 
      */
-    public Pelicula(int anioEstreno, boolean disponible, float duracion, String nombre, String tituloOriginal, PaisDeOrigen paisDeOrigen, Elenco elenco, List<Funcion> funciones, Genero genero, Calificacion calificacion) {
+    public Pelicula(int anioEstreno, boolean disponible, int duracion, String nombre, String tituloOriginal, PaisDeOrigen paisDeOrigen, List<Personaje> personajes, List<Funcion> funciones, Genero genero, Calificacion calificacion) {
         this.anioEstreno = anioEstreno;
         this.disponible = disponible;
         this.duracion = duracion;
         this.nombre = nombre;
         this.tituloOriginal = tituloOriginal;
         this.paisDeOrigen = paisDeOrigen;
-        this.elenco = elenco;
+        this.personajes = personajes;
         this.funciones = funciones;
         this.genero = genero;
         this.calificacion = calificacion;
@@ -105,6 +105,19 @@ public class Pelicula {
         return null;
     }
     
+    /**
+     * Calculamos la duracion total de la Pelicula cuando se asigna a una 
+     * Funcion determinada para un Cine contando duración de la publicidad
+     * y el intervalo entre Funciones
+     * 
+     * @param horarioFuncion
+     * @return 
+     */
+    public int calcularDuracionEnFuncion (HorarioFuncion horarioFuncion) {
+        return this.duracion + horarioFuncion.getDuracionPublicidad() + 
+                horarioFuncion.getDuracionIntervalo();
+    }
+    
     // A continuación se listan todos los métodos 
     // de seteo de cada atributo de la clase
 
@@ -128,7 +141,7 @@ public class Pelicula {
         return duracion;
     }
 
-    public void setDuracion(float duracion) {
+    public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
 
@@ -164,12 +177,12 @@ public class Pelicula {
         this.paisDeOrigen = paisDeOrigen;
     }
 
-    public Elenco getElenco() {
-        return elenco;
+    public List<Personaje> getPersonajes() {
+        return personajes;
     }
 
-    public void setElenco(Elenco elenco) {
-        this.elenco = elenco;
+    public void setPersonajes(List<Personaje> personajes) {
+        this.personajes = personajes;
     }
 
     public List<Funcion> getFunciones() {

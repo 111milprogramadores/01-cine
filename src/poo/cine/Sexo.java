@@ -11,21 +11,21 @@ package poo.cine;
  */
 public class Sexo {
     
-    private String denominacion;
+    private String nombre;
 
     public Sexo() {
     }
 
-    public Sexo(String denominacion) {
-        this.denominacion = denominacion;
+    public Sexo(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getDenominacion() {
-        return denominacion;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setDenominacion(String denominacion) {
-        this.denominacion = denominacion;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
 }

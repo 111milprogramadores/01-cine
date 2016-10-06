@@ -15,8 +15,7 @@ import java.util.List;
 public class Funcion {
 
     private int diaSemana;
-    private float duracion;
-    private Date fechaHabilitacion;
+    private int duracion;
     private Date horaInicio;
     private int numero;
     private Pelicula pelicula;
@@ -40,10 +39,9 @@ public class Funcion {
      * @param pelicula
      * @param sala 
      */
-    public Funcion(int diaSemana, float duracion, Date fechaHabilitacion, Date horaInicio, int numero, Pelicula pelicula, Sala sala) {
+    public Funcion(int diaSemana, int duracion, Date horaInicio, int numero, Pelicula pelicula, Sala sala) {
         this.diaSemana = diaSemana;
         this.duracion = duracion;
-        this.fechaHabilitacion = fechaHabilitacion;
         this.horaInicio = horaInicio;
         this.numero = numero;
         this.pelicula = pelicula;
@@ -110,20 +108,12 @@ public class Funcion {
         this.diaSemana = diaSemana;
     }
 
-    public float getDuracion() {
+    public int getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(float duracion) {
+    public void setDuracion(int duracion) {
         this.duracion = duracion;
-    }
-
-    public Date getFechaHabilitacion() {
-        return fechaHabilitacion;
-    }
-
-    public void setFechaHabilitacion(Date fechaHabilitacion) {
-        this.fechaHabilitacion = fechaHabilitacion;
     }
 
     public Date getHoraInicio() {

@@ -10,8 +10,8 @@ package poo.cine;
  * @author Candelaria
  */
 public class Rol {
+    
     private String nombre;
-    private String descripcion;
 
     /**
      * Constructor por Defecto
@@ -23,11 +23,9 @@ public class Rol {
      * Este constructor incluye todos los atributos de la clase
      * 
      * @param nombre
-     * @param descripcion 
      */
-    public Rol(String nombre, String descripcion) {
+    public Rol(String nombre) {
         this.nombre = nombre;
-        this.descripcion = descripcion;
     }
 
     // A continuación se listan todos los métodos 
@@ -39,14 +37,6 @@ public class Rol {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
     
 }

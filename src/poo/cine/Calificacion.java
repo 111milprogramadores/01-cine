@@ -11,7 +11,6 @@ package poo.cine;
  */
 public class Calificacion {
     
-    private String descripcion;
     private String nombre;
     
     /**
@@ -23,24 +22,14 @@ public class Calificacion {
     /**
      * Este constructor incluye todos atributos de la clase Calificacion
      * 
-     * @param descripcion
      * @param nombre 
      */
-    public Calificacion(String descripcion, String nombre) {
-        this.descripcion = descripcion;
+    public Calificacion(String nombre) {
         this.nombre = nombre;
     }
 
     // A continuación se listan todos los métodos de seteo
     // de cada atributo de la clase
-    
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
 
     public String getNombre() {
         return nombre;

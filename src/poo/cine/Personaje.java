@@ -11,10 +11,9 @@ package poo.cine;
  */
 public class Personaje {
     
-    private boolean animado;
-    private String apellido;
-    private String nombre;
-    private Sexo sexo;
+    private String nombreEnPelicula;
+    private Actor actor;
+    private Rol rol;
 
     /**
      * Constructor por Defecto
@@ -23,51 +22,43 @@ public class Personaje {
     }
     
     /**
-     * Este constructor incluye todos los atributos de la clase Personaje
+     * Este constructor incluye todos los atributos de la clase Elenco
      * 
-     * @param animado
-     * @param apellido
-     * @param nombre
-     * @param sexo 
+     * @param nombreEnPelicula
+     * @param personaje
+     * @param rol 
      */
-    public Personaje(boolean animado, String apellido, String nombre, Sexo sexo) {
-        this.animado = animado;
-        this.apellido = apellido;
-        this.nombre = nombre;
-        this.sexo = sexo;
+    public Personaje(String nombreEnPelicula, Actor personaje, Rol rol) {
+        this.nombreEnPelicula = nombreEnPelicula;
+        this.actor = personaje;
+        this.rol = rol;
     }
+
+    // A continuación se listan todos los métodos de seteo 
+    // de cada atributo de la clase
     
-    //A continuación se listan todos los métodos de seteo de cada atributo de la clase.
-    public boolean isAnimado() {
-        return animado;
+    public String getNombreEnPelicula() {
+        return nombreEnPelicula;
     }
 
-    public void setAnimado(boolean animado) {
-        this.animado = animado;
+    public void setNombreEnPelicula(String nombreEnPelicula) {
+        this.nombreEnPelicula = nombreEnPelicula;
     }
 
-    public String getApellido() {
-        return apellido;
+    public Actor getPersonaje() {
+        return actor;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setPersonaje(Actor personaje) {
+        this.actor = personaje;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Rol getRol() {
+        return rol;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Sexo getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(Sexo sexo) {
-        this.sexo = sexo;
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
     
 }
