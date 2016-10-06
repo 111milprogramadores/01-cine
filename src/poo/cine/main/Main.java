@@ -161,12 +161,80 @@ public class Main {
         Funcion lunes4 = new Funcion(Calendar.MONDAY, trescientos.calcularDuracionEnFuncion(horariosLunes), finFuncion.getTime(), 4, trescientos, sala2);
 
         // creamos las Funciones del MARTES
-        Funcion martes1 = new Funcion(Calendar.TUESDAY, elGranGatsby.calcularDuracionEnFuncion(horariosLunes), inicioFuncion.getTime(), 5, elGranGatsby, sala2);
-        Funcion martes2 = new Funcion(Calendar.TUESDAY, trescientos.calcularDuracionEnFuncion(horariosLunes), segundaFuncion.getTime(), 6, trescientos, sala2);
-        Funcion martes3 = new Funcion(Calendar.TUESDAY, relatosSalvajes.calcularDuracionEnFuncion(horariosLunes), terceraFuncion.getTime(), 7, relatosSalvajes, sala1);
-        Funcion martes4 = new Funcion(Calendar.TUESDAY, elLoboDeWallStreet.calcularDuracionEnFuncion(horariosLunes), finFuncion.getTime(), 8, elLoboDeWallStreet, sala1);
+        Funcion martes1 = new Funcion(Calendar.TUESDAY, elGranGatsby.calcularDuracionEnFuncion(horariosMartes), inicioFuncion.getTime(), 5, elGranGatsby, sala2);
+        Funcion martes2 = new Funcion(Calendar.TUESDAY, trescientos.calcularDuracionEnFuncion(horariosMartes), segundaFuncion.getTime(), 6, trescientos, sala2);
+        Funcion martes3 = new Funcion(Calendar.TUESDAY, relatosSalvajes.calcularDuracionEnFuncion(horariosMartes), terceraFuncion.getTime(), 7, relatosSalvajes, sala1);
+        Funcion martes4 = new Funcion(Calendar.TUESDAY, elLoboDeWallStreet.calcularDuracionEnFuncion(horariosMartes), finFuncion.getTime(), 8, elLoboDeWallStreet, sala1);
         
-        // creamos la programacion de octubre
+        // creamos las Funciones del MIERCOLES
+        Funcion miercoles1 = new Funcion(Calendar.WEDNESDAY, relatosSalvajes.calcularDuracionEnFuncion(horariosMiercoles), inicioFuncion.getTime(), 9, relatosSalvajes, sala1);
+        Funcion miercoles2 = new Funcion(Calendar.WEDNESDAY, elGranGatsby.calcularDuracionEnFuncion(horariosMiercoles), segundaFuncion.getTime(), 10, elGranGatsby, sala2);
+        Funcion miercoles3 = new Funcion(Calendar.WEDNESDAY, elLoboDeWallStreet.calcularDuracionEnFuncion(horariosMiercoles), terceraFuncion.getTime(), 11, elLoboDeWallStreet, sala1);
+        Funcion miercoles4 = new Funcion(Calendar.WEDNESDAY, trescientos.calcularDuracionEnFuncion(horariosMiercoles), finFuncion.getTime(), 12, trescientos, sala2);
+       
+         // creamos las Funciones del JUEVES
+        Funcion jueves1 = new Funcion(Calendar.THURSDAY, trescientos.calcularDuracionEnFuncion(horariosJueves), inicioFuncion.getTime(), 13, trescientos, sala2);
+        Funcion jueves2 = new Funcion(Calendar.THURSDAY, elGranGatsby.calcularDuracionEnFuncion(horariosJueves), segundaFuncion.getTime(), 14, elGranGatsby, sala2);
+        Funcion jueves3 = new Funcion(Calendar.THURSDAY, elLoboDeWallStreet.calcularDuracionEnFuncion(horariosJueves), terceraFuncion.getTime(), 15, elLoboDeWallStreet, sala1);
+        Funcion jueves4 = new Funcion(Calendar.THURSDAY, relatosSalvajes.calcularDuracionEnFuncion(horariosJueves), finFuncion.getTime(), 16, relatosSalvajes, sala1);
+        
+        // creamos las Funciones del VIERNES
+        Funcion viernes1 = new Funcion(Calendar.FRIDAY, relatosSalvajes.calcularDuracionEnFuncion(horariosViernes), inicioFuncion.getTime(), 17, relatosSalvajes, sala1);
+        Funcion viernes2 = new Funcion(Calendar.FRIDAY, elGranGatsby.calcularDuracionEnFuncion(horariosViernes), segundaFuncion.getTime(), 18, elGranGatsby, sala2);
+        Funcion viernes3 = new Funcion(Calendar.FRIDAY, trescientos.calcularDuracionEnFuncion(horariosViernes), terceraFuncion.getTime(), 19, trescientos, sala1);
+        Funcion viernes4 = new Funcion(Calendar.FRIDAY, elLoboDeWallStreet.calcularDuracionEnFuncion(horariosViernes), finFuncion.getTime(), 20, elLoboDeWallStreet, sala2);
+        
+        // creamos las Funciones del SÁBADO
+        Funcion sabado1 = new Funcion(Calendar.SATURDAY, elLoboDeWallStreet.calcularDuracionEnFuncion(horariosSabado), inicioFuncion.getTime(), 21, elLoboDeWallStreet, sala1);
+        Funcion sabado2 = new Funcion(Calendar.SATURDAY, trescientos.calcularDuracionEnFuncion(horariosSabado), segundaFuncion.getTime(), 22, trescientos, sala1);
+        Funcion sabado3 = new Funcion(Calendar.SATURDAY, relatosSalvajes.calcularDuracionEnFuncion(horariosSabado), terceraFuncion.getTime(), 23, relatosSalvajes, sala2);
+        Funcion sabado4 = new Funcion(Calendar.SATURDAY, elGranGatsby.calcularDuracionEnFuncion(horariosSabado), finFuncion.getTime(), 24, elGranGatsby, sala2);
+        
+        // creamos las Funciones del DOMINGO
+        Funcion domingo1 = new Funcion(Calendar.SUNDAY, relatosSalvajes.calcularDuracionEnFuncion(horariosDomingo), inicioFuncion.getTime(), 25, relatosSalvajes, sala2);
+        Funcion domingo2 = new Funcion(Calendar.SUNDAY, elLoboDeWallStreet.calcularDuracionEnFuncion(horariosDomingo), segundaFuncion.getTime(), 26, elLoboDeWallStreet, sala1);
+        Funcion domingo3 = new Funcion(Calendar.SUNDAY, trescientos.calcularDuracionEnFuncion(horariosDomingo), terceraFuncion.getTime(), 27, trescientos, sala1);
+        Funcion domingo4 = new Funcion(Calendar.SUNDAY, elGranGatsby.calcularDuracionEnFuncion(horariosDomingo), finFuncion.getTime(), 28, elGranGatsby, sala2);
+        
+        // asignamos cada una de las funciones creadas a la lista de funciones: funcionesOctubre
+        funcionesOctubre.add(lunes1);
+        funcionesOctubre.add(lunes2);
+        funcionesOctubre.add(lunes3);
+        funcionesOctubre.add(lunes4);
+        
+        funcionesOctubre.add(martes1);
+        funcionesOctubre.add(martes2);
+        funcionesOctubre.add(martes3);
+        funcionesOctubre.add(martes4);
+        
+        funcionesOctubre.add(miercoles1);
+        funcionesOctubre.add(miercoles2);
+        funcionesOctubre.add(miercoles3);
+        funcionesOctubre.add(miercoles4);
+        
+        funcionesOctubre.add(jueves1);
+        funcionesOctubre.add(jueves2);
+        funcionesOctubre.add(jueves3);
+        funcionesOctubre.add(jueves4);
+        
+        funcionesOctubre.add(viernes1);
+        funcionesOctubre.add(viernes2);
+        funcionesOctubre.add(viernes3);
+        funcionesOctubre.add(viernes4);
+        
+        funcionesOctubre.add(sabado1);
+        funcionesOctubre.add(sabado2);
+        funcionesOctubre.add(sabado3);
+        funcionesOctubre.add(sabado4);
+        
+        funcionesOctubre.add(domingo1);
+        funcionesOctubre.add(domingo2);
+        funcionesOctubre.add(domingo3);
+        funcionesOctubre.add(domingo4);
+        
+        
+        
+        // creamos la programacion de octubre con la lista de funciones: funcionesOctubre
         Programacion octubre = new Programacion(inicioProgramacion.getTime(), finProgramacion.getTime(), ahora.getTime(), funcionesOctubre);
         
         // agregamos la programacion de octubre al cine

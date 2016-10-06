@@ -7,6 +7,7 @@ package poo.cine;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ public class Cine {
     private String direccion;
     private Date fechaInauguracion;
     private String nombre;
-    private List<Sala> sala;
+    private List<Sala> salas;
     private List<HorarioFuncion> horariosFunciones;
     private List<Programacion> programaciones;
     private BigDecimal precioEntrada;
@@ -43,7 +44,7 @@ public class Cine {
         this.direccion = direccion;
         this.fechaInauguracion = fechaInauguracion;
         this.nombre = nombre;
-        this.sala = sala;
+        this.salas = sala;
         this.horariosFunciones = horariosFunciones;
         this.programaciones = programaciones;
     }
@@ -67,7 +68,19 @@ public class Cine {
      * @return 
      */
     public String mostrarCine () {
-        return null;
+        
+        String datosCine= "Nombre del Cine: " + this.nombre + " - " + "Dirección: " + this.direccion + "\n";
+        datosCine += "Fecha Inauguración: " + this.fechaInauguracion + " - " + "Precio de la Entrada: " + this.precioEntrada + "\n";
+        datosCine += "Salas: " + this.salas.toString() + "Horario Funciones: " ;
+        Iterator it = horariosFunciones.iterator();
+        while(it.hasNext())
+        {
+            HorarioFuncion horario = (HorarioFuncion)it.next();
+            horario.mostrarHorarioFuncion();
+            
+        }
+        datosCine += "Programaciones: " + this.programaciones.toString();
+        return datosCine;
     }
     
     /**
@@ -107,12 +120,12 @@ public class Cine {
         this.nombre = nombre;
     }
 
-    public List<Sala> getSala() {
-        return sala;
+    public List<Sala> getSalas() {
+        return salas;
     }
 
-    public void setSala(List<Sala> sala) {
-        this.sala = sala;
+    public void setSalas(List<Sala> salas) {
+        this.salas = salas;
     }
 
     public List<HorarioFuncion> getHorariosFunciones() {
