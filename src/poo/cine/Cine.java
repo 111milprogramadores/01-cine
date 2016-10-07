@@ -6,6 +6,7 @@
 package poo.cine;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -28,6 +29,9 @@ public class Cine {
      * Constructor por Defecto
      */
     public Cine() {
+        salas = new ArrayList<>();
+        horariosFunciones= new ArrayList<>();
+        programaciones= new ArrayList<>();
     }
 
     /**
@@ -47,6 +51,7 @@ public class Cine {
         this.salas = sala;
         this.horariosFunciones = horariosFunciones;
         this.programaciones = programaciones;
+        
     }
     
     /**
@@ -60,6 +65,9 @@ public class Cine {
         this.direccion = direccion;
         this.fechaInauguracion = fechaInauguracion;
         this.nombre = nombre;
+        this.salas = new ArrayList<>();
+        this.horariosFunciones= new ArrayList<>();
+        this.programaciones= new ArrayList<>();
     }
     
     /**
@@ -69,18 +77,28 @@ public class Cine {
      */
     public String mostrarCine () {
         
-        String datosCine= "Nombre del Cine: " + this.nombre + " - " + "Dirección: " + this.direccion + "\n";
-        datosCine += "Fecha Inauguración: " + this.fechaInauguracion + " - " + "Precio de la Entrada: " + this.precioEntrada + "\n";
-        datosCine += "Salas: " + this.salas.toString() + "Horario Funciones: " ;
-        Iterator it = horariosFunciones.iterator();
-        while(it.hasNext())
+        StringBuilder sb = new StringBuilder();
+        sb.append("Nombre del Cine: ").append(this.nombre).append(" - Dirección: ").append(this.direccion).append("\n");
+        sb.append("Fecha Inauguración: ").append(this.fechaInauguracion).append(" - Precio de la Entrada: ").append(this.precioEntrada).append("\n");
+        sb.append("Salas: ");
+        Iterator salasIt = salas.iterator();
+        
+        while(salasIt.hasNext()){
+            Sala sala = (Sala)salasIt.next();
+            sb.append(sala); //llama automaticamenticamente al método toString() de la Sala.            
+        }
+        
+        Iterator horariosIt = horariosFunciones.iterator();
+        while(horariosIt.hasNext())
         {
-            HorarioFuncion horario = (HorarioFuncion)it.next();
-            horario.mostrarHorarioFuncion();
+            HorarioFuncion horario = (HorarioFuncion)horariosIt.next();
+            sb.append(horario); //llama automaticamenticamente al método toString() de la HorarioFuncion
             
         }
-        datosCine += "Programaciones: " + this.programaciones.toString();
-        return datosCine;
+        sb.append("Programaciones: ").append(this.programaciones.toString());
+        
+        
+        return sb.toString();
     }
     
     /**

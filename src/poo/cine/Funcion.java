@@ -5,6 +5,7 @@
  */
 package poo.cine;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class Funcion {
      * Constructor por Defecto
      */
     public Funcion() {
+        entradas = new ArrayList<Entrada>();
     }
     
     /**
@@ -155,5 +157,16 @@ public class Funcion {
     public void setEntradas(List<Entrada> entradas) {
         this.entradas = entradas;
     }
-   
+    /**
+     * Recorremos las Funciones y armamos una cadena de texto con la 
+     * representación de cada una de ellas.
+     * 
+     * @return cadena de texto con las funciones
+     */
+    @Override
+    public String toString() {
+        // TODO recorrer funciones y mostrar sus datos
+        return "Datos de la función: " + "Falta de hacer";
+    }
+      
 }

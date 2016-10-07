@@ -5,6 +5,7 @@
  */
 package poo.cine;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class Programacion {
      * Constructor por Defecto
      */
     public Programacion() {
+        funciones = new ArrayList<>();
     }
 
     /**
@@ -38,19 +40,9 @@ public class Programacion {
         this.fechaFin = fechaFin;
         this.fechaHoraCreada = fechaHoraCreada;
         this.funciones = funciones;
+        this.funciones = new ArrayList<>();
     }
-    
-    /**
-     * Recorremos las Funciones y armamos una cadena de texto con la 
-     * representación de cada una de ellas.
-     * 
-     * @return cadena de texto con las funciones
-     */
-    public String mostrarProgramacion() {
-        // TODO recorrer funciones y mostrar sus datos
-        return "Falta implementar";
-    }
-    
+      
     /**
      * Comprobamos si todos los días de esta programación tienen al menos una
      * Función asignada.
@@ -105,5 +97,21 @@ public class Programacion {
     public void setFunciones(List<Funcion> funciones) {
         this.funciones = funciones;
     }
-   
+   /**
+     * Recorremos las Funciones y armamos una cadena de texto con la 
+     * representación de cada una de ellas.
+     * 
+     * @return cadena de texto con las funciones
+     */
+    public String mostrarProgramacion() {
+        // TODO recorrer funciones y mostrar sus datos
+        return "Falta implementar";
+    }
+
+    @Override
+    public String toString() {
+        return "Programacion{" + "fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", fechaHoraCreada=" + fechaHoraCreada + ", funciones=" + funciones + '}';
+    }
+    
+    
 }

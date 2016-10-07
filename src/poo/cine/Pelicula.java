@@ -6,6 +6,7 @@
 package poo.cine;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,6 +32,8 @@ public class Pelicula {
      * Constructor por Defecto
      */
     public Pelicula() {
+        personajes = new ArrayList<>();
+        funciones = new ArrayList<>();
     }
         
     /**
@@ -49,6 +52,8 @@ public class Pelicula {
         this.nombre = nombre;
         this.tituloOriginal = tituloOriginal;        
         this.fechaIngreso = java.sql.Timestamp.valueOf(LocalDateTime.now());
+        this.personajes = new ArrayList<>();
+        this.funciones = new ArrayList<>();
         
     }
     

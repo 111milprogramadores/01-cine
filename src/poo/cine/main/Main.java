@@ -239,6 +239,8 @@ public class Main {
         
         // agregamos la programacion de octubre al cine
         cine1.getProgramaciones().add(octubre);
+        
+        System.out.print(cine1.mostrarCine());
     }
     
 }
