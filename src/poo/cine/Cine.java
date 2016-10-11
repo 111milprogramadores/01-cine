@@ -6,6 +6,7 @@
 package poo.cine;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -30,8 +31,8 @@ public class Cine {
      */
     public Cine() {
         salas = new ArrayList<>();
-        horariosFunciones= new ArrayList<>();
-        programaciones= new ArrayList<>();
+        horariosFunciones = new ArrayList<>();
+        programaciones = new ArrayList<>();
     }
 
     /**
@@ -51,7 +52,6 @@ public class Cine {
         this.salas = sala;
         this.horariosFunciones = horariosFunciones;
         this.programaciones = programaciones;
-        
     }
     
     /**
@@ -60,59 +60,19 @@ public class Cine {
      * @param direccion
      * @param fechaInauguracion
      * @param nombre 
+     * @param precioEntrada 
      */
-    public Cine(String direccion, Date fechaInauguracion, String nombre) {
+    public Cine(String direccion, Date fechaInauguracion, String nombre, BigDecimal precioEntrada) {
         this.direccion = direccion;
         this.fechaInauguracion = fechaInauguracion;
         this.nombre = nombre;
+        this.precioEntrada = precioEntrada;
+        
+        // inicializamos las colecciones vacias
         this.salas = new ArrayList<>();
-        this.horariosFunciones= new ArrayList<>();
-        this.programaciones= new ArrayList<>();
+        this.horariosFunciones = new ArrayList<>();
+        this.programaciones = new ArrayList<>();
     }
-    
-    /**
-     * Devolvemos una represetación textual de Cine
-     * 
-     * @return 
-     */
-    public String mostrarCine () {
-        
-        StringBuilder sb = new StringBuilder();
-        sb.append("Nombre del Cine: ").append(this.nombre).append(" - Dirección: ").append(this.direccion).append("\n");
-        sb.append("Fecha Inauguración: ").append(this.fechaInauguracion).append(" - Precio de la Entrada: ").append(this.precioEntrada).append("\n");
-        sb.append("Salas: ");
-        Iterator salasIt = salas.iterator();
-        
-        while(salasIt.hasNext()){
-            Sala sala = (Sala)salasIt.next();
-            sb.append(sala); //llama automaticamenticamente al método toString() de la Sala.            
-        }
-        
-        Iterator horariosIt = horariosFunciones.iterator();
-        while(horariosIt.hasNext())
-        {
-            HorarioFuncion horario = (HorarioFuncion)horariosIt.next();
-            sb.append(horario); //llama automaticamenticamente al método toString() de la HorarioFuncion
-            
-        }
-        sb.append("Programaciones: ").append(this.programaciones.toString());
-        
-        
-        return sb.toString();
-    }
-    
-    /**
-     * Obtenemos una representación textual de los horarios de las distintas
-     * Funciones disponibles por día para este Cine
-     * 
-     * @return 
-     */
-    public String mostrarHorariosFunciones () {
-        return null;
-    }
-    
-    // A continuación se listan todos los métodos de seteo 
-    // de cada atributo de la clase
     
     public String getDireccion() {
         return direccion;
@@ -170,4 +130,61 @@ public class Cine {
         this.precioEntrada = precioEntrada;
     }
     
+    /**
+     * Obtenemos la Programacion vigente para este Cine
+     * 
+     * @return 
+     */
+    public Programacion obtenerProgramacionVigente () {
+        Programacion vigente = null;
+        
+        Iterator<Programacion> iter = programaciones.iterator();
+        while (iter.hasNext()) {
+            Programacion p = iter.next();
+            
+            // si esta vigente la devolvemos
+            if (p.estaVigente()) {
+                vigente = p;
+                break;
+            }
+        }
+        
+        return vigente;
+    }
+ 
+    /**
+     * Devolvemos una represetación textual de Cine
+     * 
+     * @return 
+     */
+    @Override
+    public String toString () {
+        // creamos una instancia del formateador de fechas
+        SimpleDateFormat sdf = new SimpleDateFormat("d/M/y");
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append("Nombre del Cine: ").append(nombre).append(" - Dirección: ").append(direccion).append("\n");
+        sb.append("Fecha Inauguración: ").append(sdf.format(fechaInauguracion)).append(" - Precio de la Entrada: $").append(precioEntrada).append("\n");
+        sb.append("Salas: \n");
+        
+        // iteramos sobre las salas del cine
+        Iterator<Sala> salasIt = salas.iterator();
+        while (salasIt.hasNext()) {
+            // llama automaticamenticamente al método toString() de la Sala
+            sb.append(salasIt.next()).append("\n"); 
+        }
+        
+        // iteramos sobre los horarios posibles de las funciones
+        Iterator<HorarioFuncion> horariosIt = horariosFunciones.iterator();
+        while (horariosIt.hasNext()) {
+            // llama automaticamenticamente al método toString() de HorarioFuncion
+            sb.append(horariosIt.next()).append("\n");
+        }
+        
+        // agregamos las programacion vigente de este Cine
+        sb.append("Programación vigente: \n").append(obtenerProgramacionVigente().toString());
+        
+        // devolvemos toda la cadena de texto resultante
+        return sb.toString();
+    }
 }

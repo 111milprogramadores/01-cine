@@ -6,6 +6,7 @@
 package poo.cine;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -54,13 +55,37 @@ public class Programacion {
     }
     
     /**
-     * Comprobamos si la fecha actual se encuentra dentro del periodo de 
-     * vigencia de esta Programacion (fecha de inicio y fin)
+     * Consultamos si la Programacion está vigente cuando
      * 
      * @return 
      */
     public boolean estaVigente () {
-       return false; 
+        return estaVigente(Calendar.getInstance().getTime());
+    }
+    
+    /**
+     * Comprobamos si la fecha actual se encuentra dentro del periodo de 
+     * vigencia de esta Programacion (fecha de inicio y fin), consideramos
+     * también que la fecha de inicio y fin también están en el periodo de 
+     * vigencia de la Programación
+     * 
+     * @param fecha
+     * @return 
+     */
+    public boolean estaVigente (Date fecha) {
+        Calendar cuando = Calendar.getInstance();
+        cuando.setTime(fecha);
+        
+        Calendar inicio = Calendar.getInstance();
+        inicio.setTime(fechaInicio);
+        
+        Calendar fin = Calendar.getInstance();
+        fin.setTime(fechaFin);
+        
+        // comparamos contra la fecha de inicio y fin de la programacion
+        // utilizamos los operadores <= y >= para asegurarnos de que
+        // ambos extremos de fecha (inicio y fin) sean incluídos en el chequeo
+        return inicio.compareTo(cuando) <= 0 && fin.compareTo(cuando) >= 0;
     }
   
     // A continuación se listan todos los métodos 

@@ -1,5 +1,6 @@
 package poo.cine.main;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -34,12 +35,16 @@ public class Main {
         Calendar ahora = Calendar.getInstance();
         
         // creamos instancias de Cines
-        Cine cine1 = new Cine("Marcelo T. de Alvear 820", ahora.getTime(), "Gran Cine");
-        Cine cine2 = new Cine("Padre Lozano 1122", ahora.getTime(), "El Cine de Polo");
+        Cine cine1 = new Cine("Marcelo T. de Alvear 820", ahora.getTime(), "Gran Cine", new BigDecimal(57));
+        Cine cine2 = new Cine("Padre Lozano 1122", ahora.getTime(), "El Cine de Polo", new BigDecimal(23));
 
         // creamos las salas
         Sala sala1 = new Sala(100, 1);
         Sala sala2 = new Sala(200, 2);
+        
+        // las agregamos al cine
+        cine1.getSalas().add(sala1);
+        cine1.getSalas().add(sala2);
 
         // creamos las horas de inicio y fin de las funciones
         Calendar inicioFuncion = Calendar.getInstance();
@@ -141,7 +146,7 @@ public class Main {
         finProgramacion.set(Calendar.YEAR, 2016);
         
         // creamos el listado de funciones de octubre
-        List<Funcion> funcionesOctubre = new ArrayList<Funcion>();
+        List<Funcion> funcionesOctubre = new ArrayList<>();
 
         // creamos los horarios de las funciones
         Calendar segundaFuncion = Calendar.getInstance();
@@ -232,15 +237,13 @@ public class Main {
         funcionesOctubre.add(domingo3);
         funcionesOctubre.add(domingo4);
         
-        
-        
         // creamos la programacion de octubre con la lista de funciones: funcionesOctubre
         Programacion octubre = new Programacion(inicioProgramacion.getTime(), finProgramacion.getTime(), ahora.getTime(), funcionesOctubre);
         
         // agregamos la programacion de octubre al cine
         cine1.getProgramaciones().add(octubre);
         
-        System.out.print(cine1.mostrarCine());
+        System.out.print(cine1);
     }
     
 }
