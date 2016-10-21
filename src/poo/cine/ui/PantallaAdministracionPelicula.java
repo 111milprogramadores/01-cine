@@ -5,16 +5,34 @@
  */
 package poo.cine.ui;
 
+import java.awt.event.WindowEvent;
+import java.util.List;
+import javax.swing.JOptionPane;
+import poo.cine.Calificacion;
+import poo.cine.Genero;
+import poo.cine.PaisDeOrigen;
+import poo.cine.Pelicula;
+import poo.cine.Personaje;
+
 /**
  *
  * @author joaquinleonelrobles
  */
 public class PantallaAdministracionPelicula extends javax.swing.JFrame {
+    
+    private List<Genero> generos;
+    private List<Calificacion> calificaciones;
+    private List<PaisDeOrigen> paises;
+    private List<Personaje> personajes;
+    
+    private GestorPelicula gestor;
 
-    /**
-     * Creates new form PanelAdministracionPelicula
-     */
-    public PantallaAdministracionPelicula() {
+    public PantallaAdministracionPelicula(List<Genero> generos, List<Calificacion> calificaciones, List<PaisDeOrigen> paises, GestorPelicula gestor) {
+        this.generos = generos;
+        this.calificaciones = calificaciones;
+        this.paises = paises;
+        this.gestor = gestor;
+        
         initComponents();
     }
 
@@ -34,9 +52,9 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         selGenero = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        selCalificacion = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        selPais = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtDuracion = new javax.swing.JTextField();
@@ -58,9 +76,19 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
 
         jLabel1.setText("Ingrese el nombre:");
 
+        txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNombreFocusLost(evt);
+            }
+        });
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
+            }
+        });
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNombreKeyPressed(evt);
             }
         });
 
@@ -70,6 +98,7 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
 
         jLabel2.setText("Género:");
 
+        selGenero.setModel(new javax.swing.DefaultComboBoxModel(generos.toArray()));
         selGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selGeneroActionPerformed(evt);
@@ -78,11 +107,14 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
 
         jLabel3.setText("Calificación:");
 
+        selCalificacion.setModel(new javax.swing.DefaultComboBoxModel(calificaciones.toArray()));
+
         jLabel4.setText("País de origen:");
 
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        selPais.setModel(new javax.swing.DefaultComboBoxModel(paises.toArray()));
+        selPais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                selPaisActionPerformed(evt);
             }
         });
 
@@ -98,11 +130,11 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(selCalificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(selPais, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -113,9 +145,9 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
                     .addComponent(selGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selCalificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(selPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -165,6 +197,11 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
         jLabel8.setText("Registrar Elenco:");
 
         jButton1.setText("Registrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Disponible:");
 
@@ -172,13 +209,24 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
         radioSiDisponible.setText("Sí");
 
         buttonGroup5.add(radioNoDisponible);
+        radioNoDisponible.setSelected(true);
         radioNoDisponible.setText("No");
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         btnConfirmar.setText("Confirmar");
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -240,13 +288,14 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
                         .addComponent(radioSiDisponible)
-                        .addComponent(radioNoDisponible)))
+                        .addComponent(radioNoDisponible))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(jButton1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -254,7 +303,7 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
@@ -263,17 +312,65 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_selGeneroActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void selPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selPaisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_selPaisActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void txtNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreKeyPressed
+
+    private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
+        // verificamos si ya existe una pelicula con ese nombre
+        if (gestor.buscarPeliculaPorNombre(txtNombre.getText()) != null) {
+            JOptionPane.showMessageDialog(null, "Ya existe una Película con ese nombre");
+        }
+    }//GEN-LAST:event_txtNombreFocusLost
+
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        // obtenemos los datos ingresados por el usuario
+        int anioEstreno = Integer.parseInt(txtAnioEstreno.getText());
+        boolean disponible = radioSiDisponible.isSelected();
+        int duracion = Integer.parseInt(txtDuracion.getText());
+        String nombre = txtNombre.getText();
+        String tituloOriginal = txtTituloOriginal.getText();
+
+        // validamos los datos minimos
+        if (gestor.buscarPeliculaPorNombre(txtNombre.getText()) != null) {
+            JOptionPane.showMessageDialog(null, "Ya existe una Película con ese nombre");
+        }
+        else {
+            // creamos la instancia de una nueva pelicula
+            Pelicula nueva = new Pelicula(anioEstreno, disponible, duracion, nombre, tituloOriginal);
+            nueva.setGenero((Genero) selGenero.getSelectedItem());
+            nueva.setCalificacion((Calificacion) selCalificacion.getSelectedItem());
+            nueva.setPaisDeOrigen((PaisDeOrigen) selPais.getSelectedItem());
+            nueva.setPersonajes(personajes);
+
+            // delegamos al gestor 
+            gestor.guardarPelicula(nueva);
+
+            // notificamos al usuario
+            JOptionPane.showMessageDialog(null, "La Película " + nueva + "ha sido agregada con éxito");
+        }
+    }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // realizamos un mockup de la llamada al caso de uso "Registrar Elenco"
+        personajes = gestor.obtenerElenco();
+        
+        JOptionPane.showMessageDialog(null, "Se ha registrado el elenco: " + personajes.get(0));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnConfirmar;
     private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -288,7 +385,9 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JRadioButton radioNoDisponible;
     private javax.swing.JRadioButton radioSiDisponible;
+    private javax.swing.JComboBox<String> selCalificacion;
     private javax.swing.JComboBox<String> selGenero;
+    private javax.swing.JComboBox<String> selPais;
     private javax.swing.JTextField txtAnioEstreno;
     private javax.swing.JTextField txtDuracion;
     private javax.swing.JTextField txtNombre;

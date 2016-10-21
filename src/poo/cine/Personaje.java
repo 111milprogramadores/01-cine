@@ -60,5 +60,10 @@ public class Personaje {
     public void setRol(Rol rol) {
         this.rol = rol;
     }
+
+    @Override
+    public String toString() {
+        return nombreEnPelicula + " interpretado por " + actor;
+    }
     
 }

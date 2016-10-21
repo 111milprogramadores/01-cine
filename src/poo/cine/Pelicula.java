@@ -213,5 +213,10 @@ public class Pelicula {
     public void setCalificacion(Calificacion calificacion) {
         this.calificacion = calificacion;
     }
+
+    @Override
+    public String toString() {
+        return nombre; //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
