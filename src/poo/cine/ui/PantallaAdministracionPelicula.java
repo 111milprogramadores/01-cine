@@ -25,7 +25,7 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
     private List<PaisDeOrigen> paises;
     private List<Personaje> personajes;
     
-    private GestorPelicula gestor;
+    private final GestorPelicula gestor;
 
     public PantallaAdministracionPelicula(List<Genero> generos, List<Calificacion> calificaciones, List<PaisDeOrigen> paises, GestorPelicula gestor) {
         this.generos = generos;
@@ -332,18 +332,25 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreFocusLost
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        // obtenemos los datos ingresados por el usuario
-        int anioEstreno = Integer.parseInt(txtAnioEstreno.getText());
-        boolean disponible = radioSiDisponible.isSelected();
-        int duracion = Integer.parseInt(txtDuracion.getText());
-        String nombre = txtNombre.getText();
-        String tituloOriginal = txtTituloOriginal.getText();
-
+        
         // validamos los datos minimos
+        if (txtNombre.getText().isEmpty() || txtAnioEstreno.getText().isEmpty() ||
+            txtDuracion.getText().isEmpty() || txtTituloOriginal.getText().isEmpty()) {
+            
+            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
+        }
+        else
         if (gestor.buscarPeliculaPorNombre(txtNombre.getText()) != null) {
             JOptionPane.showMessageDialog(null, "Ya existe una Película con ese nombre");
         }
         else {
+            // obtenemos los datos ingresados por el usuario
+            int anioEstreno = Integer.parseInt(txtAnioEstreno.getText());
+            boolean disponible = radioSiDisponible.isSelected();
+            int duracion = Integer.parseInt(txtDuracion.getText());
+            String nombre = txtNombre.getText();
+            String tituloOriginal = txtTituloOriginal.getText();
+        
             // creamos la instancia de una nueva pelicula
             Pelicula nueva = new Pelicula(anioEstreno, disponible, duracion, nombre, tituloOriginal);
             nueva.setGenero((Genero) selGenero.getSelectedItem());

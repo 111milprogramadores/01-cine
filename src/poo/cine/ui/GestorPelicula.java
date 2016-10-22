@@ -33,12 +33,12 @@ import poo.cine.dao.PeliculasDaoImpl;
  */
 public class GestorPelicula {
     
-    private Cine cine;
+    private final Cine cine;
     
-    private GenerosDao generosDao;
-    private CalificacionesDao calificacionesDao;
-    private PaisesDao paisesDao;
-    private PeliculasDao peliculasDao;
+    private final GenerosDao generosDao;
+    private final CalificacionesDao calificacionesDao;
+    private final PaisesDao paisesDao;
+    private final PeliculasDao peliculasDao;
 
     public GestorPelicula() {
         Calendar ahora = Calendar.getInstance();
