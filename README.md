@@ -1,7 +1,7 @@
 # Complejo de Cines
-### Ejercicio 1 de Programación Orientada a Objetos
+### Ejercicio 1 los módulos Programación Orientada a Objetos y Bases de Datos
 
-> Este ejercicio forma parte de la Guía Práctica del módulo Programación Orientada a Objetos
+> Este ejercicio forma parte de la Guía Práctica de los módulos Programación Orientada a Objetos y Bases de Datos
 > del programa nacional [111mil Programadores](https://www.argentina.gob.ar/111mil).
 
 Este complejo de cines cuenta con varios cines distribuidos en la ciudad. Cada cine tiene varias salas. Las salas no tienen el mismo tamaño, por consiguiente, la capacidad en términos de cantidad de butacas disponibles, no es la misma para todas las salas.
