@@ -5,6 +5,7 @@
  */
 package poo.cine.ui;
 
+import poo.cine.controller.GestorPelicula;
 import java.awt.event.WindowEvent;
 import java.util.List;
 import javax.swing.JOptionPane;

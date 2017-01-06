@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package poo.cine.ui;
+package poo.cine.controller;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -26,6 +26,7 @@ import poo.cine.dao.PaisesDao;
 import poo.cine.dao.PaisesDaoImpl;
 import poo.cine.dao.PeliculasDao;
 import poo.cine.dao.PeliculasDaoImpl;
+import poo.cine.ui.PantallaAdministracionPelicula;
 
 /**
  *
