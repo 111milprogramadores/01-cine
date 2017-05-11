@@ -11,6 +11,7 @@ package poo.cine;
  */
 public class Genero {
     
+    private Integer id;
     private String nombre;
 
     /**
@@ -37,6 +38,14 @@ public class Genero {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override

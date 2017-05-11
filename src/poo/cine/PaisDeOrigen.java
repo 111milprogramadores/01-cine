@@ -11,6 +11,7 @@ package poo.cine;
  */
 public class PaisDeOrigen {
     
+    private Integer id;
     private String idioma;
     private String nombre;
 
@@ -48,6 +49,14 @@ public class PaisDeOrigen {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override

@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import org.hibernate.SessionFactory;
 import poo.cine.Actor;
 import poo.cine.Calificacion;
 import poo.cine.Cine;
@@ -19,13 +20,13 @@ import poo.cine.Personaje;
 import poo.cine.Rol;
 import poo.cine.Sexo;
 import poo.cine.dao.CalificacionesDao;
-import poo.cine.dao.CalificacionesDaoImpl;
+import poo.cine.dao.CalificacionesDaoHibernateImpl;
 import poo.cine.dao.GenerosDao;
-import poo.cine.dao.GenerosDaoImpl;
+import poo.cine.dao.GenerosDaoHibernateImpl;
 import poo.cine.dao.PaisesDao;
-import poo.cine.dao.PaisesDaoImpl;
+import poo.cine.dao.PaisesDaoHibernateImpl;
 import poo.cine.dao.PeliculasDao;
-import poo.cine.dao.PeliculasDaoImpl;
+import poo.cine.dao.PeliculasDaoHibernateImpl;
 import poo.cine.ui.PantallaAdministracionPelicula;
 
 /**
@@ -41,17 +42,17 @@ public class GestorPelicula {
     private final PaisesDao paisesDao;
     private final PeliculasDao peliculasDao;
 
-    public GestorPelicula() {
+    public GestorPelicula(SessionFactory sessionFactory) {
         Calendar ahora = Calendar.getInstance();
         
         // creamos el cine
         cine = new Cine("Marcelo T. de Alvear 820", ahora.getTime(), "Gran Cine", new BigDecimal(57));
         
         // creamos las instancias de los objetos de acceso a datos
-        this.generosDao = new GenerosDaoImpl();
-        this.calificacionesDao = new CalificacionesDaoImpl();
-        this.paisesDao = new PaisesDaoImpl();
-        this.peliculasDao = new PeliculasDaoImpl();
+        this.generosDao = new GenerosDaoHibernateImpl(sessionFactory);
+        this.calificacionesDao = new CalificacionesDaoHibernateImpl(sessionFactory);
+        this.paisesDao = new PaisesDaoHibernateImpl(sessionFactory);
+        this.peliculasDao = new PeliculasDaoHibernateImpl(sessionFactory);
     }
     
     public void run () {

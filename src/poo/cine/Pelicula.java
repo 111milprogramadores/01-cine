@@ -16,6 +16,7 @@ import java.util.List;
  */
 public class Pelicula {
     
+    private int id;
     private int anioEstreno;
     private boolean disponible;
     private int duracion;
@@ -123,8 +124,15 @@ public class Pelicula {
                 horarioFuncion.getDuracionIntervalo();
     }
     
-    // A continuación se listan todos los métodos 
+    // A continuación se listan todos los métodos
     // de seteo de cada atributo de la clase
+
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public int getAnioEstreno() {
         return anioEstreno;
@@ -142,7 +150,7 @@ public class Pelicula {
         this.disponible = disponible;
     }
 
-    public float getDuracion() {
+    public int getDuracion() {
         return duracion;
     }
 
