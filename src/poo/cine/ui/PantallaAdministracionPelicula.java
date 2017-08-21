@@ -21,9 +21,10 @@ import poo.cine.Personaje;
  */
 public class PantallaAdministracionPelicula extends javax.swing.JFrame {
     
-    private List<Genero> generos;
-    private List<Calificacion> calificaciones;
-    private List<PaisDeOrigen> paises;
+    private final List<Genero> generos;
+    private final List<Calificacion> calificaciones;
+    private final List<PaisDeOrigen> paises;
+    
     private List<Personaje> personajes;
     
     private final GestorPelicula gestor;
