@@ -15,7 +15,12 @@ import poo.cine.Funcion;
 import poo.cine.Programacion;
 
 /**
- *
+ * Probamos el cálculo de vigencia de la programación en distintas fechas
+ * usando las estrategias de Análisis de Valores Límite y Particiones de 
+ * Equivalencia, probamos fechas antes, durante y después del inicio y 
+ * fin de la Programación y también probamos en los mismos momentos de 
+ * inicio y fin.
+ * 
  * @author joaquinleonelrobles
  */
 public class ProgramacionTest {
@@ -47,37 +52,42 @@ public class ProgramacionTest {
         
         programacion = new Programacion(inicio.getTime(), fin.getTime(), hoy.getTime(), funciones);
     }
-    
-    /**
-     * Probamos el cálculo de vigencia de la programación en distintas fechas
-     * usando las estrategias de Análisis de Valores Límite y Particiones de 
-     * Equivalencia, probamos fechas antes, durante y después del inicio y 
-     * fin de la Programación y también probamos en los mismos momentos de 
-     * inicio y fin.
-     */
+
     @Test
-    public void probarEstaVigente () {
+    public void probarEstaVigenteAntes () {
         // probamos en una fecha anterior al inicio
         Calendar antes = Calendar.getInstance();
         antes.set(2015, 4, 11, 13, 14, 15);
         assertFalse(programacion.estaVigente(antes.getTime()));
-        
+    }
+    
+    @Test
+    public void probarEstaVigenteAlInicio () {
         // probamos el mismo momento de inicio
         Calendar inicio = Calendar.getInstance();
         inicio.set(2016, 10, 17, 0, 0, 0);
         assertTrue(programacion.estaVigente(inicio.getTime()));
-        
+    }
+     
+    @Test
+    public void probarEstaVigenteDurante () {
         // probamos entre las fechas de inicio y fin
         Calendar durante = Calendar.getInstance();
         durante.set(2016, 10, 20, 0, 0, 0);
         assertTrue(programacion.estaVigente(durante.getTime()));
-        
+    }
+    
+    @Test
+    public void probarEstaVigenteAlFin () {    
         // probamos el mismo momento de fin
         Calendar fin = Calendar.getInstance();
         fin.set(2016, 10, 23, 23, 59, 59);
         fin.set(Calendar.MILLISECOND, 999);
         assertTrue(programacion.estaVigente(fin.getTime()));
-        
+    }
+    
+    @Test
+    public void probarEstaVigenteDespues () {    
         // probamos despues del fin
         Calendar despues = Calendar.getInstance();
         despues.set(2016, 10, 24, 0, 0, 0);
